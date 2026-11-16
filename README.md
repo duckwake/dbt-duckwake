@@ -1,6 +1,6 @@
 # dbt-duckwake
 
-> This repository is published from [`dbt/` in duckwake/duckwake](https://github.com/duckwake/duckwake/tree/main/dbt), where the package
+> This repository is published from [`dbt/` in duckwake/duckwake](https://github.com/duckwake/duckwake/tree/v0.2.0/dbt), where the package
 > is written and tested against the engine. Send issues and pull requests there.
 
 DuckWake streaming views and Kafka sources as dbt models, on [dbt-duckdb](https://github.com/duckdb/dbt-duckdb).
@@ -80,7 +80,7 @@ A source is config only, `models/sources/clicks.sql`:
           columns={'ts': 'TIMESTAMP', 'game_id': 'VARCHAR', 'amount': 'DECIMAL(18,2)'}) }}
 ```
 
-It takes the source options of [`duckwake_create_source`](https://github.com/duckwake/duckwake/blob/main/docs/cli.md#views-and-sources) (`security_protocol`,
+It takes the source options of [`duckwake_create_source`](https://github.com/duckwake/duckwake/blob/v0.2.0/docs/cli.md#views-and-sources) (`security_protocol`,
 `sasl_password := 'env:KAFKA_PASSWORD'` and so on; a password is never written into the model).
 
 A view is a `SELECT`, `models/analytics/clicks_per_min.sql`:
@@ -128,9 +128,9 @@ models:
 
 [`example/`](example/) is the test suite's views as a project: a Kafka source, a windowed aggregate, a filter, a
 grouped aggregate, a view over a view and a view over a lake table. DuckWake's `scripts/dbt_test.sh` deploys and
-changes it in CI, from the package as dbt-duckwake publishes it ([testing.md](https://github.com/duckwake/duckwake/blob/main/docs/testing.md)).
+changes it in CI, from the package as dbt-duckwake publishes it ([testing.md](https://github.com/duckwake/duckwake/blob/v0.2.0/docs/testing.md)).
 
 ## Not yet
 
-Zero-downtime replace (build beside, catch up, swap; next on the [roadmap](https://github.com/duckwake/duckwake/blob/main/docs/roadmap.md)); changing a source other than adding columns; `store_failures`
+Zero-downtime replace (build beside, catch up, swap; next on the [roadmap](https://github.com/duckwake/duckwake/blob/v0.2.0/docs/roadmap.md)); changing a source other than adding columns; `store_failures`
 as a view; a dbt Hub listing (the package's repository is ready for one).
